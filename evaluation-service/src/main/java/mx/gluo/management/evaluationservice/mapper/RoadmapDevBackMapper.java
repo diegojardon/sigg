@@ -1,4 +1,4 @@
-package mx.gluo.management.evaluationservice.utils;
+package mx.gluo.management.evaluationservice.mapper;
 
 import mx.gluo.management.evaluationservice.model.Promedio;
 import mx.gluo.management.evaluationservice.model.RoadmapDevBackEnd;

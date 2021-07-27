@@ -1,4 +1,4 @@
-package mx.gluo.management.evaluationservice.utils;
+package mx.gluo.management.evaluationservice.mapper;
 
 import mx.gluo.management.evaluationservice.model.Promedio;
 import mx.gluo.management.evaluationservice.model.RoadmapBasico;
@@ -54,14 +54,6 @@ public class RoadmapBasicoMapper {
         roadmapBasico.setCiYcdLider(row.get(LEADER_COLUMN).toString());
         roadmapBasico.setCiYcdAuto(row.get(SELF_COLUMN).toString());
         roadmapBasico.setCiYcdAvg(row.get(AVG_COLUMN).toString());
-    }
-
-    public static void setIngles(RoadmapBasico roadmapBasico, List<Object> row){
-
-    }
-
-    public static void setSoftSkills(RoadmapBasico roadmapBasico, List<Object> row){
-
     }
 
     public static void setAverage(Promedio promedio, List<Object> row){

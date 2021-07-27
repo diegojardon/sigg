@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: user-services
+  cloud:
+    vault:
+      host: localhost
+      port: 8200
+      scheme: http
+      fail-fast: true
+      kv-version: 2
+      authentication: TOKEN
+      token: s.msk4vX3ppa1tOSwbEGpxUCs4
+      config:
+        lifecycle:
+          enabled: true
+      database:
+        enabled: true
+        role: my-role-sigg
+        backend: database
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3307/sigg?allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false
