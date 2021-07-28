@@ -10,5 +10,6 @@ public class ProfileMapper {
         profile.setCompleteName(siggUser.getCompleteName());
         profile.setBirthDate(siggUser.getBirthDate());
         profile.setAdmissionDate(siggUser.getAdmissionDate());
+        profile.setGoogleSheetId(siggUser.getGoogleSheetId());
     }
 }

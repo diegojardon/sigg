@@ -11,4 +11,5 @@ public class Profile {
     private String completeName;
     private String birthDate;
     private String admissionDate;
+    private String googleSheetId;
 }

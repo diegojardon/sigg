@@ -7,6 +7,8 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Evaluation {
 
+    private String googleSheetId;
+    private String completeName;
     private RoadmapBasico roadmapBasico;
     private RoadmapDevBackEnd roadmapDevBackEnd;
     private RoadmapDevFrontEnd roadmapDevFrontEnd;

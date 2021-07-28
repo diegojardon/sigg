@@ -14,20 +14,19 @@ import java.util.concurrent.CompletableFuture;
 @Service
 public class EvaluationsService {
 
-    public Evaluation getEvaluationsByUser(){
+    public Evaluation getEvaluationsByUser(Evaluation evaluation){
 
         //CONSULTAR DE BD LA URL DEL DOCUMENTO DE GOOGLE SHEETS
 
-        String googleSheetId = "1CuI25Svp4Uy-8u7Gr-n0HN70D6l6lz3APhwRXA2F3t0";
+        //String googleSheetId = "1CuI25Svp4Uy-8u7Gr-n0HN70D6l6lz3APhwRXA2F3t0";
 
         //LEER LOS DATOS DE LAS DIFERENTES HOJAS
-
-        Evaluation evaluation = new Evaluation();
+        //Evaluation evaluation = new Evaluation();
 
         CompletableFuture<Integer> basicEvaluationFuture = CompletableFuture.supplyAsync(() ->{
 
             SpreadSheetInfo spreadSheetInfoBasic = new SpreadSheetInfo();
-            spreadSheetInfoBasic.setSpreadsheetId(googleSheetId);
+            spreadSheetInfoBasic.setSpreadsheetId(evaluation.getGoogleSheetId());
 
             GoogleSheetUtils.getSpreadsheetRangeByUserJob(spreadSheetInfoBasic, ProfileTypes.BASIC.getValue());
             try {
@@ -42,7 +41,7 @@ public class EvaluationsService {
         CompletableFuture<Integer> devBackEvaluationFuture = CompletableFuture.supplyAsync(() -> {
 
             SpreadSheetInfo spreadSheetInfoDevBack = new SpreadSheetInfo();
-            spreadSheetInfoDevBack.setSpreadsheetId(googleSheetId);
+            spreadSheetInfoDevBack.setSpreadsheetId(evaluation.getGoogleSheetId());
 
             GoogleSheetUtils.getSpreadsheetRangeByUserJob(spreadSheetInfoDevBack, ProfileTypes.DEV_BACK_END.getValue());
             try{
@@ -57,7 +56,7 @@ public class EvaluationsService {
         CompletableFuture<Integer> devFrontEvaluationFuture = CompletableFuture.supplyAsync(() -> {
 
             SpreadSheetInfo spreadSheetInfoDevFront = new SpreadSheetInfo();
-            spreadSheetInfoDevFront.setSpreadsheetId(googleSheetId);
+            spreadSheetInfoDevFront.setSpreadsheetId(evaluation.getGoogleSheetId());
 
             GoogleSheetUtils.getSpreadsheetRangeByUserJob(spreadSheetInfoDevFront, ProfileTypes.DEV_FRONT_END.getValue());
             try{
@@ -72,7 +71,7 @@ public class EvaluationsService {
         CompletableFuture<Integer> techLeadEvaluationFuture = CompletableFuture.supplyAsync(() -> {
 
             SpreadSheetInfo spreadSheetInfoTechLead = new SpreadSheetInfo();
-            spreadSheetInfoTechLead.setSpreadsheetId(googleSheetId);
+            spreadSheetInfoTechLead.setSpreadsheetId(evaluation.getGoogleSheetId());
 
             GoogleSheetUtils.getSpreadsheetRangeByUserJob(spreadSheetInfoTechLead, ProfileTypes.TECH_LEAD.getValue());
             try{

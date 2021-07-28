@@ -25,6 +25,9 @@ public class GatewayConfig {
                 .route("user-services", r -> r.path("/profile/**")
                         .filters(f -> f.filter(filter))
                         .uri("lb://user-services"))
+                .route("evaluation-service", r -> r.path("/evaluations/**")
+                        .filters(f -> f.filter(filter))
+                        .uri("lb://evaluation-service"))
                 .route(p -> p
                         .path("/get")
                         .filters(f -> f.addRequestHeader("Hello", "World"))

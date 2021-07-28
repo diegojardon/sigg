@@ -20,14 +20,13 @@ public class UserController {
 
 
     @PostMapping("/register")
-    public void registerUser(@RequestBody SiggUser siggUser){
+    public void registerUser(@RequestBody SiggUser siggUser) {
         registerService.registerUser(siggUser);
     }
 
     @GetMapping("/profile")
-    public Profile getUserProfile(@RequestHeader("id") String username){
-        //String username = "Diego";
-        System.out.println("ID RECIBIDO: " + username);
+    public Profile getUserProfile(@RequestHeader("id") String username) {
         return profileService.getUserProfile(username);
     }
+
 }
