@@ -18,9 +18,9 @@ public class EvaluationController {
     private ProfileProxy profileProxy;
 
     @GetMapping("/evaluations")
-    public Evaluation getEvaluations(@RequestHeader("id") String username){
+    public Evaluation getEvaluations(@RequestHeader("ID") String username, @RequestHeader("role") String roles){
 
-        Evaluation evaluation = profileProxy.getUserProfile(username);
+        Evaluation evaluation = profileProxy.getUserProfile(username, roles);
         return evaluationsService.getEvaluationsByUser(evaluation);
     }
 }

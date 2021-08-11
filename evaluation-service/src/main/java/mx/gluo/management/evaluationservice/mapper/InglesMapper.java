@@ -1,31 +1,32 @@
 package mx.gluo.management.evaluationservice.mapper;
 
+import mx.gluo.management.evaluationservice.enums.InglesLabels;
+import mx.gluo.management.evaluationservice.model.Concepto;
 import mx.gluo.management.evaluationservice.model.Ingles;
-import mx.gluo.management.evaluationservice.model.RoadmapBasico;
+import mx.gluo.management.evaluationservice.utils.ConceptoUtils;
 
 import java.util.List;
 
 public class InglesMapper {
 
-    private static final int LEADER_COLUMN = 5;
-    private static final int SELF_COLUMN = 6;
-    private static final int AVG_COLUMN = 7;
-
-    public static void setSpeaking(Ingles ingles, List<Object> row){
-        ingles.setSpeakingLider(row.get(LEADER_COLUMN).toString());
-        ingles.setSpeakingAuto(row.get(SELF_COLUMN).toString());
-        ingles.setSpeakingAvg(row.get(AVG_COLUMN).toString());
+    public static void setSpeaking(List<Concepto> conceptoInglesList, List<Object> row){
+        Concepto concepto = new Concepto();
+        concepto.setLabel(InglesLabels.SPEAKING.getText());
+        ConceptoUtils.setValuesInConcepto(concepto, row);
+        conceptoInglesList.add(concepto);
     }
 
-    public static void setListening(Ingles ingles, List<Object> row){
-        ingles.setListeningLider(row.get(LEADER_COLUMN).toString());
-        ingles.setListeningAuto(row.get(SELF_COLUMN).toString());
-        ingles.setListeningAvg(row.get(AVG_COLUMN).toString());
+    public static void setListening(List<Concepto> conceptoInglesList, List<Object> row){
+        Concepto concepto = new Concepto();
+        concepto.setLabel(InglesLabels.LISTENING.getText());
+        ConceptoUtils.setValuesInConcepto(concepto, row);
+        conceptoInglesList.add(concepto);
     }
 
-    public static void setReading(Ingles ingles, List<Object> row){
-        ingles.setReadingLider(row.get(LEADER_COLUMN).toString());
-        ingles.setReadingAuto(row.get(SELF_COLUMN).toString());
-        ingles.setReadingAvg(row.get(AVG_COLUMN).toString());
+    public static void setReading(List<Concepto> conceptoInglesList, List<Object> row){
+        Concepto concepto = new Concepto();
+        concepto.setLabel(InglesLabels.READING.getText());
+        ConceptoUtils.setValuesInConcepto(concepto, row);
+        conceptoInglesList.add(concepto);
     }
 }

@@ -2,7 +2,12 @@ package mx.gluo.management.evaluationservice.utils;
 
 import mx.gluo.management.evaluationservice.mapper.*;
 import mx.gluo.management.evaluationservice.model.*;
+import mx.gluo.management.evaluationservice.model.RoadmapBasico;
+import mx.gluo.management.evaluationservice.model.RoadmapDevBackEnd;
+import mx.gluo.management.evaluationservice.model.RoadmapDevFrontEnd;
+import mx.gluo.management.evaluationservice.model.RoadmapLiderTecnico;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GoogleSheetDataMapper {
@@ -31,8 +36,14 @@ public class GoogleSheetDataMapper {
     private static void getBasicEvaluationData(List<List<Object>> values, Evaluation evaluation){
 
         RoadmapBasico roadmapBasico = new RoadmapBasico();
+        List<Concepto> conceptoList = new ArrayList<>();
+
         Ingles ingles = new Ingles();
+        List<Concepto> conceptoInglesList = new ArrayList<>();
+
         Softskills softskills = new Softskills();
+        List<Concepto> conceptoSoftSkillsList = new ArrayList<>();
+
         Promedio promedio = new Promedio();
 
         short rowNumber = 1;
@@ -40,46 +51,46 @@ public class GoogleSheetDataMapper {
         for(List row : values.subList(1, 15)) {
             switch(rowNumber){
                 case 1:
-                    RoadmapBasicoMapper.setInternetYRedes(roadmapBasico, row);
+                    RoadmapBasicoMapper.setInternetYRedes(conceptoList, row);
                     break;
                 case 2:
-                    RoadmapBasicoMapper.setUnixYLinux(roadmapBasico, row);
+                    RoadmapBasicoMapper.setUnixYLinux(conceptoList, row);
                     break;
                 case 3:
-                    RoadmapBasicoMapper.setCvs(roadmapBasico, row);
+                    RoadmapBasicoMapper.setCvs(conceptoList, row);
                     break;
                 case 4:
-                    RoadmapBasicoMapper.setBuenasPracticas(roadmapBasico, row);
+                    RoadmapBasicoMapper.setBuenasPracticas(conceptoList, row);
                     break;
                 case 5:
-                    RoadmapBasicoMapper.setSeguridad(roadmapBasico, row);
+                    RoadmapBasicoMapper.setSeguridad(conceptoList, row);
                     break;
                 case 6:
-                    RoadmapBasicoMapper.setPatronesDisenio(roadmapBasico, row);
+                    RoadmapBasicoMapper.setPatronesDisenio(conceptoList, row);
                     break;
                 case 7:
-                    RoadmapBasicoMapper.setCICD(roadmapBasico, row);
+                    RoadmapBasicoMapper.setCICD(conceptoList, row);
                     break;
                 case 8:
-                    InglesMapper.setSpeaking(ingles, row);
+                    InglesMapper.setSpeaking(conceptoInglesList, row);
                     break;
                 case 9:
-                    InglesMapper.setListening(ingles, row);
+                    InglesMapper.setListening(conceptoInglesList, row);
                     break;
                 case 10:
-                    InglesMapper.setReading(ingles, row);
+                    InglesMapper.setReading(conceptoInglesList, row);
                     break;
                 case 11:
-                    SoftSkillsMapper.setComunicacion(softskills, row);
+                    SoftSkillsMapper.setComunicacion(conceptoSoftSkillsList, row);
                     break;
                 case 12:
-                    SoftSkillsMapper.setTrabajoEquipo(softskills, row);
+                    SoftSkillsMapper.setTrabajoEquipo(conceptoSoftSkillsList, row);
                     break;
                 case 13:
-                    SoftSkillsMapper.setResponsabilidad(softskills, row);
+                    SoftSkillsMapper.setResponsabilidad(conceptoSoftSkillsList, row);
                     break;
                 case 14:
-                    SoftSkillsMapper.setProactividad(softskills, row);
+                    SoftSkillsMapper.setProactividad(conceptoSoftSkillsList, row);
                     break;
                 default:
                     break;
@@ -87,6 +98,10 @@ public class GoogleSheetDataMapper {
             rowNumber++;
         }
 
+        ingles.setConceptoList(conceptoInglesList);
+        softskills.setConceptoList(conceptoSoftSkillsList);
+
+        roadmapBasico.setConceptoList(conceptoList);
         roadmapBasico.setIngles(ingles);
         roadmapBasico.setSoftskills(softskills);
 
@@ -102,6 +117,8 @@ public class GoogleSheetDataMapper {
     private static void getDevBackEndEvaluationData(List<List<Object>> values, Evaluation evaluation){
 
         RoadmapDevBackEnd roadmapDevBackEnd = new RoadmapDevBackEnd();
+
+        List<Concepto> conceptoList = new ArrayList<>();
         Promedio promedio = new Promedio();
 
         short rowNumber = 1;
@@ -109,37 +126,39 @@ public class GoogleSheetDataMapper {
         for(List row : values.subList(1, 10)) {
             switch(rowNumber){
                 case 1:
-                    RoadmapDevBackMapper.setJava(roadmapDevBackEnd, row);
+                    RoadmapDevBackMapper.setJava(conceptoList, row);
                     break;
                 case 2:
-                    RoadmapDevBackMapper.setSpring(roadmapDevBackEnd, row);
+                    RoadmapDevBackMapper.setSpring(conceptoList, row);
                     break;
                 case 3:
-                    RoadmapDevBackMapper.setSpringCloud(roadmapDevBackEnd, row);
+                    RoadmapDevBackMapper.setSpringCloud(conceptoList, row);
                     break;
                 case 4:
-                    RoadmapDevBackMapper.setFrontEnd(roadmapDevBackEnd, row);
+                    RoadmapDevBackMapper.setFrontEnd(conceptoList, row);
                     break;
                 case 5:
-                    RoadmapDevBackMapper.setBaseDeDatos(roadmapDevBackEnd, row);
+                    RoadmapDevBackMapper.setBaseDeDatos(conceptoList, row);
                     break;
                 case 6:
-                    RoadmapDevBackMapper.setWebServices(roadmapDevBackEnd, row);
+                    RoadmapDevBackMapper.setWebServices(conceptoList, row);
                     break;
                 case 7:
-                    RoadmapDevBackMapper.setCICD(roadmapDevBackEnd, row);
+                    RoadmapDevBackMapper.setCICD(conceptoList, row);
                     break;
                 case 8:
-                    RoadmapDevBackMapper.setSeguridad(roadmapDevBackEnd, row);
+                    RoadmapDevBackMapper.setSeguridad(conceptoList, row);
                     break;
                 case 9:
-                    RoadmapDevBackMapper.setAnalisisNegocio(roadmapDevBackEnd, row);
+                    RoadmapDevBackMapper.setAnalisisNegocio(conceptoList, row);
                     break;
                 default:
                     break;
             }
             rowNumber++;
         }
+
+        roadmapDevBackEnd.setConceptoList(conceptoList);
 
         List<Object> row = values.get(230);
         RoadmapDevBackMapper.setAverage(promedio, row);
@@ -154,6 +173,8 @@ public class GoogleSheetDataMapper {
     private static void getDevFrontEndEvaluationData(List<List<Object>> values, Evaluation evaluation){
 
         RoadmapDevFrontEnd roadmapDevFrontEnd = new RoadmapDevFrontEnd();
+
+        List<Concepto> conceptoList = new ArrayList<>();
         Promedio promedio = new Promedio();
 
         short rowNumber = 1;
@@ -161,25 +182,25 @@ public class GoogleSheetDataMapper {
         for(List row : values.subList(1, 8)) {
             switch(rowNumber){
                 case 1:
-                    RoadmapDevFrontMapper.setHtml(roadmapDevFrontEnd, row);
+                    RoadmapDevFrontMapper.setHtml(conceptoList, row);
                     break;
                 case 2:
-                    RoadmapDevFrontMapper.setCss(roadmapDevFrontEnd, row);
+                    RoadmapDevFrontMapper.setCss(conceptoList, row);
                     break;
                 case 3:
-                    RoadmapDevFrontMapper.setJavascript(roadmapDevFrontEnd, row);
+                    RoadmapDevFrontMapper.setJavascript(conceptoList, row);
                     break;
                 case 4:
-                    RoadmapDevFrontMapper.setVirtualDom(roadmapDevFrontEnd, row);
+                    RoadmapDevFrontMapper.setVirtualDom(conceptoList, row);
                     break;
                 case 5:
-                    RoadmapDevFrontMapper.setSeguridad(roadmapDevFrontEnd, row);
+                    RoadmapDevFrontMapper.setSeguridad(conceptoList, row);
                     break;
                 case 6:
-                    RoadmapDevFrontMapper.setCICD(roadmapDevFrontEnd, row);
+                    RoadmapDevFrontMapper.setCICD(conceptoList, row);
                     break;
                 case 7:
-                    RoadmapDevFrontMapper.setArquitecturaWeb(roadmapDevFrontEnd, row);
+                    RoadmapDevFrontMapper.setArquitecturaWeb(conceptoList, row);
                     break;
                 default:
                     break;
@@ -187,6 +208,7 @@ public class GoogleSheetDataMapper {
             rowNumber++;
         }
 
+        roadmapDevFrontEnd.setConceptoList(conceptoList);
 
         List<Object> row = values.get(133);
         RoadmapDevFrontMapper.setAverage(promedio, row);
@@ -200,6 +222,8 @@ public class GoogleSheetDataMapper {
     private static void getTechLeadEvaluationData(List<List<Object>> values, Evaluation evaluation){
 
         RoadmapLiderTecnico roadmapLiderTecnico = new RoadmapLiderTecnico();
+
+        List<ConceptoLT> conceptoLtList = new ArrayList<>();
         Promedio promedio = new Promedio();
 
         short rowNumber = 1;
@@ -207,25 +231,27 @@ public class GoogleSheetDataMapper {
         for(List row : values.subList(1, 6)) {
             switch(rowNumber){
                 case 1:
-                    RoadmapLiderTecnicoMapper.setAnalistaNegocio(roadmapLiderTecnico, row);
+                    RoadmapLiderTecnicoMapper.setAnalistaNegocio(conceptoLtList, row);
                     break;
                 case 2:
-                    RoadmapLiderTecnicoMapper.setPlanificador(roadmapLiderTecnico, row);
+                    RoadmapLiderTecnicoMapper.setPlanificador(conceptoLtList, row);
                     break;
                 case 3:
-                    RoadmapLiderTecnicoMapper.setDesarrollador(roadmapLiderTecnico, row);
+                    RoadmapLiderTecnicoMapper.setDesarrollador(conceptoLtList, row);
                     break;
                 case 4:
-                    RoadmapLiderTecnicoMapper.setLiderEquipo(roadmapLiderTecnico, row);
+                    RoadmapLiderTecnicoMapper.setLiderEquipo(conceptoLtList, row);
                     break;
                 case 5:
-                    RoadmapLiderTecnicoMapper.setArquitecto(roadmapLiderTecnico, row);
+                    RoadmapLiderTecnicoMapper.setArquitecto(conceptoLtList, row);
                     break;
                 default:
                     break;
             }
             rowNumber++;
         }
+
+        roadmapLiderTecnico.setConceptoLtList(conceptoLtList);
 
         List<Object> row = values.get(68);
         RoadmapLiderTecnicoMapper.setAverage(promedio, row);

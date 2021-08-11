@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.RequestHeader;
 public interface ProfileProxy {
 
     @GetMapping("/profile")
-    Evaluation getUserProfile(@RequestHeader("id") String username);
+    Evaluation getUserProfile(@RequestHeader("ID") String username, @RequestHeader("role") String roles);
 
 }

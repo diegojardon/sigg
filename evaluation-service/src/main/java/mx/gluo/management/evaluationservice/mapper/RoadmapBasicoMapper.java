@@ -1,59 +1,66 @@
 package mx.gluo.management.evaluationservice.mapper;
 
+import mx.gluo.management.evaluationservice.enums.RoadmapBasicoLabels;
+import mx.gluo.management.evaluationservice.model.Concepto;
 import mx.gluo.management.evaluationservice.model.Promedio;
 import mx.gluo.management.evaluationservice.model.RoadmapBasico;
+import mx.gluo.management.evaluationservice.utils.ConceptoUtils;
 
 import java.util.List;
 
 public class RoadmapBasicoMapper {
 
-    private static final int LEADER_COLUMN = 5;
-    private static final int SELF_COLUMN = 6;
-    private static final int AVG_COLUMN = 7;
     private static final int LEADER_AVG = 0;
     private static final int SELF_AVG = 1;
     private static final int TOTAL_AVG = 0;
 
-    public static void setInternetYRedes(RoadmapBasico roadmapBasico, List<Object> row){
-        roadmapBasico.setInternetYRedesLider(row.get(LEADER_COLUMN).toString());
-        roadmapBasico.setInternetYRedesAuto(row.get(SELF_COLUMN).toString());
-        roadmapBasico.setInternetYRedesAvg(row.get(AVG_COLUMN).toString());
+    public static void setInternetYRedes(List<Concepto> conceptoList, List<Object> row){
+        Concepto concepto = new Concepto();
+        concepto.setLabel(RoadmapBasicoLabels.INTERNET_Y_REDES.getText());
+        ConceptoUtils.setValuesInConcepto(concepto, row);
+        conceptoList.add(concepto);
     }
 
-    public static void setUnixYLinux(RoadmapBasico roadmapBasico, List<Object> row){
-        roadmapBasico.setUnixYLinuxLider(row.get(LEADER_COLUMN).toString());
-        roadmapBasico.setUnixYLinuxAuto(row.get(SELF_COLUMN).toString());
-        roadmapBasico.setUnixYLinuxAvg(row.get(AVG_COLUMN).toString());
+    public static void setUnixYLinux(List<Concepto> conceptoList, List<Object> row){
+        Concepto concepto = new Concepto();
+        concepto.setLabel(RoadmapBasicoLabels.UNIX_Y_LINUX.getText());
+        ConceptoUtils.setValuesInConcepto(concepto, row);
+        conceptoList.add(concepto);
     }
 
-    public static void setCvs(RoadmapBasico roadmapBasico, List<Object> row){
-        roadmapBasico.setCvsLider(row.get(LEADER_COLUMN).toString());
-        roadmapBasico.setCvsAuto(row.get(SELF_COLUMN).toString());
-        roadmapBasico.setCvsAvg(row.get(AVG_COLUMN).toString());
+    public static void setCvs(List<Concepto> conceptoList, List<Object> row){
+        Concepto concepto = new Concepto();
+        concepto.setLabel(RoadmapBasicoLabels.CVS.getText());
+        ConceptoUtils.setValuesInConcepto(concepto, row);
+        conceptoList.add(concepto);
     }
 
-    public static void setBuenasPracticas(RoadmapBasico roadmapBasico, List<Object> row){
-        roadmapBasico.setBuenasPracticasLider(row.get(LEADER_COLUMN).toString());
-        roadmapBasico.setBuenasPracticasAuto(row.get(SELF_COLUMN).toString());
-        roadmapBasico.setBuenasPracticasAvg(row.get(AVG_COLUMN).toString());
+    public static void setBuenasPracticas(List<Concepto> conceptoList, List<Object> row){
+        Concepto concepto = new Concepto();
+        concepto.setLabel(RoadmapBasicoLabels.BUENAS_PRACTICAS.getText());
+        ConceptoUtils.setValuesInConcepto(concepto, row);
+        conceptoList.add(concepto);
     }
 
-    public static void setSeguridad(RoadmapBasico roadmapBasico, List<Object> row){
-        roadmapBasico.setSeguridadLider(row.get(LEADER_COLUMN).toString());
-        roadmapBasico.setSeguridadAuto(row.get(SELF_COLUMN).toString());
-        roadmapBasico.setSeguridadAvg(row.get(AVG_COLUMN).toString());
+    public static void setSeguridad(List<Concepto> conceptoList, List<Object> row){
+        Concepto concepto = new Concepto();
+        concepto.setLabel(RoadmapBasicoLabels.SEGURIDAD.getText());
+        ConceptoUtils.setValuesInConcepto(concepto, row);
+        conceptoList.add(concepto);
     }
 
-    public static void setPatronesDisenio(RoadmapBasico roadmapBasico, List<Object> row){
-        roadmapBasico.setPatronesDisenioLider(row.get(LEADER_COLUMN).toString());
-        roadmapBasico.setPatronesDisenioAuto(row.get(SELF_COLUMN).toString());
-        roadmapBasico.setPatronesDisenioAvg(row.get(AVG_COLUMN).toString());
+    public static void setPatronesDisenio(List<Concepto> conceptoList, List<Object> row){
+        Concepto concepto = new Concepto();
+        concepto.setLabel(RoadmapBasicoLabels.PATRONES_DISENIO.getText());
+        ConceptoUtils.setValuesInConcepto(concepto, row);
+        conceptoList.add(concepto);
     }
 
-    public static void setCICD(RoadmapBasico roadmapBasico, List<Object> row){
-        roadmapBasico.setCiYcdLider(row.get(LEADER_COLUMN).toString());
-        roadmapBasico.setCiYcdAuto(row.get(SELF_COLUMN).toString());
-        roadmapBasico.setCiYcdAvg(row.get(AVG_COLUMN).toString());
+    public static void setCICD(List<Concepto> conceptoList, List<Object> row){
+        Concepto concepto = new Concepto();
+        concepto.setLabel(RoadmapBasicoLabels.CI_CD.getText());
+        ConceptoUtils.setValuesInConcepto(concepto, row);
+        conceptoList.add(concepto);
     }
 
     public static void setAverage(Promedio promedio, List<Object> row){

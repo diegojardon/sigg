@@ -3,11 +3,11 @@ package mx.gluo.management.evaluationservice.model;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
-
 @Data
 @NoArgsConstructor
-public class Softskills {
+public class ConceptoLT {
 
-    private List<Concepto> conceptoList;
+    private String label;
+    private String autoevaluacion;
+
 }

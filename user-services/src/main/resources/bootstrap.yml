@@ -9,7 +9,7 @@ spring:
       fail-fast: true
       kv-version: 2
       authentication: TOKEN
-      token: s.msk4vX3ppa1tOSwbEGpxUCs4
+      token: s.GVB0QK6idh7r35QKwbkoyzXS
       config:
         lifecycle:
           enabled: true

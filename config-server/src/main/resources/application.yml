@@ -15,7 +15,7 @@ spring:
           backend: secret
           default-key: application
           kv-version: 2
-          token: s.msk4vX3ppa1tOSwbEGpxUCs4
+          token: s.GVB0QK6idh7r35QKwbkoyzXS
           order: 1
         git:
           uri: https://github.com/diegojardon/sigg

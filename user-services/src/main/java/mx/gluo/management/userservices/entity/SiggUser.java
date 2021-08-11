@@ -2,10 +2,7 @@ package mx.gluo.management.userservices.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Data
 @Entity(name = "USER")
@@ -20,6 +17,6 @@ public class SiggUser {
     private String birthDate;
     private String admissionDate;
     private String googleSheetId;
-    private int areaId;
-    private int jobId;
+    private Long areaId;
+    private Long jobId;
 }

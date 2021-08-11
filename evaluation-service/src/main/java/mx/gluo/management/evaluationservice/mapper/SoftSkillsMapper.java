@@ -1,37 +1,39 @@
 package mx.gluo.management.evaluationservice.mapper;
 
-import mx.gluo.management.evaluationservice.model.RoadmapBasico;
+import mx.gluo.management.evaluationservice.enums.SoftSkillsLabels;
+import mx.gluo.management.evaluationservice.model.Concepto;
 import mx.gluo.management.evaluationservice.model.Softskills;
+import mx.gluo.management.evaluationservice.utils.ConceptoUtils;
 
 import java.util.List;
 
 public class SoftSkillsMapper {
 
-    private static final int LEADER_COLUMN = 5;
-    private static final int SELF_COLUMN = 6;
-    private static final int AVG_COLUMN = 7;
-
-    public static void setComunicacion(Softskills softskills, List<Object> row){
-        softskills.setComunicacionEfectivaLider(row.get(LEADER_COLUMN).toString());
-        softskills.setComunicacionEfectivaAuto(row.get(SELF_COLUMN).toString());
-        softskills.setComunicacionEfectivaAvg(row.get(AVG_COLUMN).toString());
+    public static void setComunicacion(List<Concepto> conceptoSoftSkillsList, List<Object> row){
+        Concepto concepto = new Concepto();
+        concepto.setLabel(SoftSkillsLabels.COMUNICACION.getText());
+        ConceptoUtils.setValuesInConcepto(concepto, row);
+        conceptoSoftSkillsList.add(concepto);
     }
 
-    public static void setTrabajoEquipo(Softskills softskills, List<Object> row){
-        softskills.setTrabajoEquipoLider(row.get(LEADER_COLUMN).toString());
-        softskills.setTrabajoEquipoAuto(row.get(SELF_COLUMN).toString());
-        softskills.setTrabajoEquipoAvg(row.get(AVG_COLUMN).toString());
+    public static void setTrabajoEquipo(List<Concepto> conceptoSoftSkillsList, List<Object> row){
+        Concepto concepto = new Concepto();
+        concepto.setLabel(SoftSkillsLabels.TRABAJO_EQUIPO.getText());
+        ConceptoUtils.setValuesInConcepto(concepto, row);
+        conceptoSoftSkillsList.add(concepto);
     }
 
-    public static void setResponsabilidad(Softskills softskills, List<Object> row){
-        softskills.setResponsabilidadLider(row.get(LEADER_COLUMN).toString());
-        softskills.setResponsabilidadAuto(row.get(SELF_COLUMN).toString());
-        softskills.setResponsabilidadAvg(row.get(AVG_COLUMN).toString());
+    public static void setResponsabilidad(List<Concepto> conceptoSoftSkillsList, List<Object> row){
+        Concepto concepto = new Concepto();
+        concepto.setLabel(SoftSkillsLabels.RESPONSABILIDAD.getText());
+        ConceptoUtils.setValuesInConcepto(concepto, row);
+        conceptoSoftSkillsList.add(concepto);
     }
 
-    public static void setProactividad(Softskills softskills, List<Object> row){
-        softskills.setProactividadLider(row.get(LEADER_COLUMN).toString());
-        softskills.setProactividadAuto(row.get(SELF_COLUMN).toString());
-        softskills.setProactividadAvg(row.get(AVG_COLUMN).toString());
+    public static void setProactividad(List<Concepto> conceptoSoftSkillsList, List<Object> row){
+        Concepto concepto = new Concepto();
+        concepto.setLabel(SoftSkillsLabels.PROACTIVIDAD.getText());
+        ConceptoUtils.setValuesInConcepto(concepto, row);
+        conceptoSoftSkillsList.add(concepto);
     }
 }

@@ -18,15 +18,14 @@ public class UserController {
     @Autowired
     private ProfileService profileService;
 
-
     @PostMapping("/register")
     public void registerUser(@RequestBody SiggUser siggUser) {
         registerService.registerUser(siggUser);
     }
 
     @GetMapping("/profile")
-    public Profile getUserProfile(@RequestHeader("id") String username) {
-        return profileService.getUserProfile(username);
+    public Profile getUserProfile(@RequestHeader("id") String username, @RequestHeader("role") String roles) {
+        return profileService.getUserProfile(username, roles);
     }
 
 }
